@@ -2,16 +2,16 @@ require "http/client"
 require "json"
 
 module Dbl
-  def post_stats(clients : Hash(String, String), cache : Discord::Cache | Int32, time : Time::Span = 30.minutes)
+  def post_stats(clients : Hash(String, String), cache : Discord::Cache, time : Time::Span = 30.minutes)
     clients.each do |url, token|
       post_stats(url, token, cache, 10.seconds)
     end
     sleep
   end
 
-  private def post_stats(url : String, authorization_token : String, cache : Discord::Cache | Int32, time : Time::Span = 30.minutes)
+  private def post_stats(url : String, authorization_token : String, cache : Discord::Cache, time : Time::Span = 30.minutes)
     client = HTTP::Client.new(url, tls: true)
-    @cache = cache.as(Discord::Cache)
+    cache = cache.as(Discord::Cache)
 
     client.before_request do |req|
       req.headers["Authorization"] = authorization_token

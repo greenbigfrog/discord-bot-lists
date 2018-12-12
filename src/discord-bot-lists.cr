@@ -20,20 +20,22 @@ module Dbl
     spawn do
       loop do
         sleep time
-        case url
-        when "discordbots.org"
-          endpoint = "/api/bots/stats"
-          body = {server_count: cache.guilds.size}
-        when "discord.bots.gg"
-          endpoint = "/api/v1/bots/#{cache.resolve_current_user.id}/stats"
-          body = {guildCount: cache.guilds.size}
-        else
-          raise "Unsupported List"
-        end
+        begin
+          case url
+          when "discordbots.org"
+            endpoint = "/api/bots/stats"
+            body = {server_count: cache.guilds.size}
+          when "discord.bots.gg"
+            endpoint = "/api/v1/bots/#{cache.resolve_current_user.id}/stats"
+            body = {guildCount: cache.guilds.size}
+          else
+            raise "Unsupported List. Currently bots.gg and DBL are supported"
+          end
 
-        client.post(endpoint, body: body.to_json) do |res|
-          puts res.body
-          raise "Error: #{res.body}" unless res.success?
+          client.post(endpoint, body: body.to_json) do |res|
+            raise "Error: #{res.body}" unless res.success?
+          end
+        rescue
         end
       end
     end

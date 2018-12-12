@@ -1,6 +1,6 @@
 # discord-bot-lists
 
-TODO: Write a description here
+Helps posting stats to multiple bot list pages. Currently supports bots.gg and DBL
 
 ## Installation
 
@@ -8,7 +8,7 @@ TODO: Write a description here
 ```yaml
 dependencies:
   discord-bot-lists:
-    github: your-github-user/discord-bot-lists
+    github: greenbigfrog/discord-bot-lists
 ```
 2. Run `shards install`
 
@@ -26,13 +26,9 @@ sleep
 
 ```
 
-## Development
-
-TODO: Write development instructions here
-
 ## Contributing
 
-1. Fork it (<https://github.com/your-github-user/discord-bot-lists/fork>)
+1. Fork it (<https://github.com/greenbigfrog/discord-bot-lists/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -40,4 +36,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [Jonathan B.](https://github.com/your-github-user) - creator and maintainer
+- [Jonathan B.](https://github.com/greenbigfrog) - creator and maintainer

@@ -4,7 +4,7 @@ require "json"
 module Dbl
   def post_stats(clients : Hash(String, String), cache : Discord::Cache, time : Time::Span = 30.minutes)
     clients.each do |url, token|
-      post_stats(url, token, cache, 10.seconds)
+      post_stats(url, token, cache, time)
     end
   end
 
@@ -32,6 +32,7 @@ module Dbl
         end
 
         client.post(endpoint, body: body.to_json) do |res|
+          puts res.body
           raise "Error: #{res.body}" unless res.success?
         end
       end

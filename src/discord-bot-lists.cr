@@ -6,7 +6,6 @@ module Dbl
     clients.each do |url, token|
       post_stats(url, token, cache, 10.seconds)
     end
-    sleep
   end
 
   private def post_stats(url : String, authorization_token : String, cache : Discord::Cache, time : Time::Span = 30.minutes)

@@ -20,7 +20,9 @@ include Dbl
 post_stats(
   {"discordbots.org" => "ey89ttUHiftw",
    "discord.bots.gg" => "eyJhbGciOiJW__Ms"},
+   10
 )
+sleep
 
 ```
 
